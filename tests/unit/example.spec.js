@@ -1,13 +1,18 @@
 import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import UserView from '@/views/UserView'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).to.include(msg)
-  })
+describe('UserView', () => {
+  it('Renders the component', () => {
+    // arrange
+    const wrapper = shallowMount(UserView);
+    const divElement = wrapper.find('div');
+    expect(divElement.isVisible()).to.equal(true);
+  }),
+  it('Check html element has assigned start string value', () => {
+    const wrapper = shallowMount(UserView);
+    const divElementHtml = wrapper.find('div');
+    expect(divElementHtml.text()).to.equal('UserView');
+  }),
+  it('')
 })
